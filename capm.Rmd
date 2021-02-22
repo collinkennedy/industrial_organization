@@ -1,0 +1,26 @@
+---
+title: "capm"
+author: "Collin"
+date: "2/21/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(readr)
+```
+
+```{r}
+import_csv("ps5_data.csv")
+
+stock_data = ps5_data %>% 
+  mutate(SP500_return = (SP500_close - SP500_close_yesterday)/SP500_close_yesterday) %>% 
+  mutate(DVS_return = (DVS_close - DVS_close_yesterday)/DVS_close_yesterday)
+
+# View(stock_data)
+
+
+
+```
+
